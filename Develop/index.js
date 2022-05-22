@@ -1,13 +1,13 @@
-// TODO: Include packages needed for this application
-const inq = require ('inquirer');
+const inq = require('inquirer');
 const chalk = require('chalk');
 const fs = require('fs');
-const questions = [
+const { create } = require('domain');
+const question = [
 
-];
+]
 
-function createReadme () {
-    fs.writeFileSync('./README.md', 'testing')
-}
+function createReadme() {
+    fs.writeFileSync ('./README.md' ,'hello testing')
+} 
 
-createReadme()
+createReadme();
