@@ -1,7 +1,7 @@
 //Packages needed for this application
-const {prompt} = require("inquirer");
+const inq = require("inquirer");
 const fs = require("fs");
-//const chalk = require("chalk");
+const chalk = require("chalk");
 
 // Questions to ask the user
 const questions = [
@@ -60,52 +60,49 @@ const questions = [
     name: "email",
     message: "What is your email address?",
     default: "d.alvarez@icloud.com",
-  },
-];
+  }
+]
 
 //promt default answers
 
-prompt(questions).then((response) => console.log(response));
+//prompt(questions).then((response) => console.log(response));
 
 //function for the questions
 function createReadme(answers) {
-  fs.writeFileSync(
-    "./README.md",`
-    ##Project title
-    ${answers.title}
-    ## Description
-    ${answers.description}
-    ## Installation instructions
-    ${answers.installation}
-    ## Usage information
-    ${answers.usage}
-    ## License Used
-    ${answers.license}
-    ## Contributions guidelines
-    ${answers.contribute}
-    ## Deployed Link
-    ${answers.deployedLink}
-    ## Github Username
-    ${answers.githubusername}
-    ## Email
-    ${answers.email}
-  `);
+  fs.writeFileSync('./READMEgenerated.md',`
+# ${answers.title}
+## Description
+${answers.description}
+## Installation instructions
+${answers.installation}
+## Usage information
+${answers.usage}
+## License Used
+${answers.license}
+## Contributions guidelines
+${answers.contribute}
+## Deployed Link
+${answers.deployedLink}
+## Github Username
+${answers.githubusername}
+## Email
+${answers.email}
+  `)
 }
 
 //funtion toinitialize app
-function init() {
 inq
   .prompt(questions)
   .then((answers) => {
-    createReadme(answers);
-    console.log(chalk.green("😍 Successfully created README.md"));
+    createReadme(answers)
+    console.log(chalk.green("😍 Successfully created README.md"))
 })
 
   .catch((error) => {
     if (error.isTtyError) {
-      console.error("😭 Prompts could not be rendered in current environment!");
+      console.error("😭 Prompts could not be rendered in current environment!")
     } else {
-      console.error(`Something went wrong!`, error);
+      console.error(`Something went wrong!`, error)
     }
 });
-}
+
