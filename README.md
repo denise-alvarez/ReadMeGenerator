@@ -26,7 +26,7 @@ node index.js
 * The walkthrough video must demonstrate a generated README that matches the user input and has a functioning table of contents.
 
 ### Video Links <br/>
-[DEMO](insert link)
+[DEMO](https://youtu.be/1o8wgKDTsUE)
 
 ## Links
 [Denise Alvarez GitHub Link](https://github.com/denise-alvarez) <br/>
